@@ -1,0 +1,45 @@
+Starting
+You are walking in the woods looking for a famed huckleberry patch and 
+accidentally step onto a rotting piece of plywood and your feet fall through.
+You fall 60' down an abandon well into a large open cave.
+Your fall was abrutly stopped by landing in two feed of mud.
+You are physically ok, but you can only see a faint light up the hole you fell
+into. Climing out is impossible. it is too dark to see anything around you.
+	go north, hit a wall
+	go south, hit a wall with an opening just wide enough to make it through
+	go east, hit a wall
+	go west, hit a wall
+	Facing south through the wall to find yourself in a completely dark room with a rocky floor
+****************************************************************************
+
+	go north, hit a wall with an opening just wide enough to make it through
+	go south, hit a wall
+	go east, hit a wall
+	go west, trip over a football sized rock that is rather heavy before you
+	hit a large pile of rocks that blocks the bottom half of an opening
+	pick up rock
+	climb over rock pile to find yourself in a dark room with a sandy floor and a ceiling so low you cannot stand up
+****************************************************************************
+
+	go north, hit a wall
+	go south, hit a hole that you can crawl into.
+	go east, hit a large pile of rocks that blocks the bottom half of an opening
+	go west, hit a wall
+	crawl into hole and You slide for a short time and land in a dark room and is over waist deep in water 
+	and you can hear water leaking into the room, but it isn't getting any deeper
+****************************************************************************
+. 
+You notice that there is water leaking out of small holes in the rocks into the room, 
+but it doesn't seem to be getting any fuller.
+>>>>>	go north, hit a hole that you can crawl into.
+>>>>>	go south, hit a wall.
+>>>>>	go east, hit a wall with a lot of debris against the bottom corner of the wall
+	that you can feel water moving through.
+>>>>>	go west, hit an opening under the water that looks like it might be a way out.
+>>>>>	swim through hole only to get eaten by a Goliath Tigerfish.
+>>>>>	move debris with heavy rock to clear debris, you are whisked out into a beautiful lagoon only to 
+	realize your rock was a huge gold nugget.  You are rich!!!
+>>>>>	move debris without the rock, after countless hours you are unable to move anything.
+	
+	
+
