@@ -31,7 +31,7 @@ namespace CastleGrimtol.Project
 
     public void Help()
     {
-      string helpMessage = "Valid commands: go north, go east, go south, go west, take item, use item, look, quit, reset, help, ?";
+      string helpMessage = "Valid commands: go north, go east, go south, go west, take item, use item, inv, look, quit, reset, help, ?";
       Console.WriteLine();
       Console.WriteLine(helpMessage);
       Console.WriteLine();
@@ -40,7 +40,7 @@ namespace CastleGrimtol.Project
 
     public void Inventory()
     {
-
+      CurrentPlayer.ShowInv();
     }
 
     public void Look()
@@ -87,7 +87,7 @@ namespace CastleGrimtol.Project
     {
       //NOTE Message strings
       string wellOpeningMessage = @"This cavern has a very muddy floor with a faint glow of light in the ceiling from which you entered.
-It is too high for you to be able to climb back out of.";
+It is too high for you to be able to climb back out of. your search found a narrow opening to the south.";
       string rockPileMessage = @"This is a dark and open chamber with many large rocks scattered about the floor. To the west you notice
 a pile of rocks that blocks the bottom half of an opening";
       string lowCeilingMessage = @"This is a small opening with a sandy floor and a ceiling so low 
@@ -190,6 +190,9 @@ is too dark to see anything around you. Be careful, and let the survival begin!"
               break;
             case "reset":
               Reset();
+              break;
+            case "inv":
+              Inventory();
               break;
             case "take":
               TakeItem(option);
