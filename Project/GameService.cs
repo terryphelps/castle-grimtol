@@ -23,10 +23,6 @@ namespace CastleGrimtol.Project
     {
       CurrentRoom = CurrentRoom.Go(direction);
     }
-    public GameService()
-    {
-
-    }
 
 
     public void Help()
@@ -35,7 +31,6 @@ namespace CastleGrimtol.Project
       Console.WriteLine();
       Console.WriteLine(helpMessage);
       Console.WriteLine();
-
     }
 
     public void Inventory()
@@ -81,6 +76,81 @@ namespace CastleGrimtol.Project
     {
       Setup();
       Surviving = false;
+    }
+
+    public void TakeItem(string itemName)
+    {
+      switch (itemName)
+      {
+        case "mud":
+          Console.WriteLine($"{itemName} cannot be taken");
+          break;
+        case "stone":
+          Console.WriteLine($"{itemName} cannot be taken");
+          break;
+        case "sand":
+          Console.WriteLine($"{itemName} cannot be taken");
+          break;
+        case "water":
+          Console.WriteLine($"{itemName} cannot be taken");
+          break;
+        case "rock":
+          Item item = CurrentRoom.Items.Find(Item => Item.Name.ToLower() == itemName);
+          if (item != null)
+          {
+            if (CurrentRoom.Name == "Rocky Room")
+            {
+              Item playerItem = CurrentPlayer.Inventory.Find(Item => Item.Name.ToLower() == itemName);
+              if (playerItem != null)
+              {
+                Console.WriteLine($"You already possess {itemName}");
+                break;
+              }
+              CurrentRoom.Items.Remove(item);
+              CurrentPlayer.Inventory.Add(item);
+            }
+            break;
+          }
+          else
+          {
+            Console.WriteLine($"{itemName} cannot be taken");
+          }
+          break;
+        default:
+          Console.WriteLine("Invalid Command, try again");
+          break;
+      }
+    }
+
+    public void UseItem(string itemName)
+    {
+      if (CurrentPlayer.Inventory.Count > 0)
+      {
+        switch (itemName)
+        {
+          case "rock":
+            if (CurrentRoom.Name == "Water Room")
+            {
+              string rockMessage = @"You use the heavy rock to clear away the debris and all of the sudden
+you hear things starting to crack and then you are sucked into the water vortex and spit out into a beautiful
+lagoon. The heavy rock you were using was actually a gold nugget. You are rich!!";
+              Console.WriteLine(rockMessage);
+              Win();
+              Surviving = false;
+              ResetGame = true;
+              break;
+            }
+            Console.WriteLine("Cannot use that item in this room");
+            break;
+          default:
+            Console.WriteLine("You do not possess that item");
+            break;
+        }
+      }
+      else
+      {
+        Console.WriteLine("You do not possess any items to use");
+      }
     }
 
     public void Setup()
@@ -205,86 +275,6 @@ is too dark to see anything around you. Be careful, and let the survival begin!"
               break;
           }
         }
-      }
-    }
-
-    public void TakeItem(string itemName)
-    {
-
-      // else
-      // {
-      //   Console.WriteLine("Nothing to take.");
-      // }
-      switch (itemName)
-      {
-        case "mud":
-          Console.WriteLine($"{itemName} cannot be taken");
-          break;
-        case "stone":
-          Console.WriteLine($"{itemName} cannot be taken");
-          break;
-        case "sand":
-          Console.WriteLine($"{itemName} cannot be taken");
-          break;
-        case "water":
-          Console.WriteLine($"{itemName} cannot be taken");
-          break;
-        case "rock":
-          Item item = CurrentRoom.Items.Find(Item => Item.Name.ToLower() == itemName);
-          if (item != null)
-          {
-            if (CurrentRoom.Name == "Rocky Room")
-            {
-              Item playerItem = CurrentPlayer.Inventory.Find(Item => Item.Name.ToLower() == itemName);
-              if (playerItem != null)
-              {
-                Console.WriteLine($"You already possess {itemName}");
-                break;
-              }
-              CurrentRoom.Items.Remove(item);
-              CurrentPlayer.Inventory.Add(item);
-            }
-            break;
-          }
-          else
-          {
-            Console.WriteLine($"{itemName} cannot be taken");
-          }
-          break;
-        default:
-          Console.WriteLine("Invalid Command, try again");
-          break;
-      }
-    }
-
-    public void UseItem(string itemName)
-    {
-      if (CurrentPlayer.Inventory.Count > 0)
-      {
-        switch (itemName)
-        {
-          case "rock":
-            if (CurrentRoom.Name == "Water Room")
-            {
-              string rockMessage = @"You use the heavy rock to clear away the debris and all of the sudden
-you hear things starting to crack and then you are sucked into the water vortex and spit out into a beautiful
-lagoon. The heavy rock you were using was actually a gold nugget. You are rich!!";
-              Console.WriteLine(rockMessage);
-              Win();
-              Surviving = false;
-              ResetGame = true;
-              break;
-            }
-            Console.WriteLine("Cannot use that item in this room");
-            break;
-          default:
-            Console.WriteLine("You do not possess that item");
-            break;
-        }
-      }
-      else
-      {
-        Console.WriteLine("You do not possess any items to use");
       }
     }
   }
